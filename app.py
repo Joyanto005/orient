@@ -1,13 +1,18 @@
-from flask import Flask, send_file
-from refresh import update_playlist
+from flask import Flask, Response
+import json
+import os
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route("/")
 def home():
-    return "M3U Auto-Refresh Service is Running"
+    try:
+        with open("output.m3u", "r") as f:
+            content = f.read()
+        return Response(content, mimetype="application/x-mpegURL")
+    except Exception as e:
+        return f"Error: {str(e)}"
 
-@app.route('/output.m3u')
-def serve_m3u():
-    update_playlist()
-    return send_file("output.m3u", mimetype="application/x-mpegURL")
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
