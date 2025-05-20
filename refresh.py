@@ -18,7 +18,6 @@ def update_playlist():
         channels = json.load(f)
 
     playlist = "#EXTM3U\n"
-
     for ch in channels:
         new_link = refresh_token(ch["url"])
         if new_link:
