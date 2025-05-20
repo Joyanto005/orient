@@ -4,18 +4,22 @@ from datetime import datetime
 
 def refresh_token(link):
     try:
-        # আগের token বাদ দিয়ে নতুন redirect URL পাই
-        response = requests.get(link, allow_redirects=True, timeout=5)
+        response = requests.get(link, allow_redirects=True, timeout=10)
         if response.status_code == 200:
-            return response.url
+            return response.url  # Updated tokenized link
         else:
             return None
-    except:
+    except Exception as e:
+        print(f"Error refreshing token for {link}: {e}")
         return None
 
 def update_playlist():
-    with open("channels.json", "r") as f:
-        channels = json.load(f)
+    try:
+        with open("channels.json", "r") as f:
+            channels = json.load(f)
+    except Exception as e:
+        print("Error loading channels.json:", e)
+        return
 
     playlist = "#EXTM3U\n"
 
@@ -31,5 +35,4 @@ def update_playlist():
 
     print(f"Updated at {datetime.now()}")
 
-if __name__ == "__main__":
-    update_playlist()
+# NOTE: এটা Flask থেকে কল হবে, তাই সরাসরি রান না করলেও চলবে
