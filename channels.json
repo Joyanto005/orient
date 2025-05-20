@@ -1,0 +1,42 @@
+[
+  {
+    "name": "ATN Bangla",
+    "url": "http://redforce.live:8082/ATN.BANGLA.HD/index.m3u8"
+  },
+  {
+    "name": "ATN News",
+    "url": "http://redforce.live:8082/ATN.NEWS.HD/index.m3u8"
+  },
+  {
+    "name": "Channel 24",
+    "url": "http://redforce.live:8082/CHANNEL.24.HD/index.m3u8"
+  },
+  {
+    "name": "Channel I",
+    "url": "http://redforce.live:8082/CHANNEL.I.HD/index.m3u8"
+  },
+  {
+    "name": "Colors Bangla Cinema",
+    "url": "http://redforce.live:8082/COLORS.BANGLA.CINEMA/index.m3u8"
+  },
+  {
+    "name": "Colors Bangla",
+    "url": "http://redforce.live:8082/COLORS.BANGLA.HD/index.m3u8"
+  },
+  {
+    "name": "Enter10 Bangla",
+    "url": "http://redforce.live:8082/ENTER10.BANGLA/index.m3u8"
+  },
+  {
+    "name": "GTV",
+    "url": "http://redforce.live:8082/GAZI.TV.HD/index.m3u8"
+  },
+  {
+    "name": "Independent News",
+    "url": "http://redforce.live:8082/INDEPENDENT.TV/index.m3u8"
+  },
+  {
+    "name": "Jalsha Movies",
+    "url": "http://redforce.live:8082/JALSHA.MOVIES.HD/index.m3u8"
+  }
+]
