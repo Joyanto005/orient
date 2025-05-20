@@ -1,2 +1,3 @@
 #!/bin/bash
-python refresh.py
+python refresh.py &
+python app.py
