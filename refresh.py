@@ -4,8 +4,8 @@ from datetime import datetime
 
 def refresh_token(link):
     try:
-        base = link.split('?')[0]
-        response = requests.head(link, allow_redirects=True)
+        # আগের token বাদ দিয়ে নতুন redirect URL পাই
+        response = requests.get(link, allow_redirects=True, timeout=5)
         if response.status_code == 200:
             return response.url
         else:
@@ -18,6 +18,7 @@ def update_playlist():
         channels = json.load(f)
 
     playlist = "#EXTM3U\n"
+
     for ch in channels:
         new_link = refresh_token(ch["url"])
         if new_link:
