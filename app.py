@@ -1,18 +1,18 @@
 from flask import Flask, Response
-import json
-import os
+from refresh import update_playlist
 
 app = Flask(__name__)
 
-@app.route("/")
-def home():
-    try:
-        with open("output.m3u", "r") as f:
-            content = f.read()
-        return Response(content, mimetype="application/x-mpegURL")
-    except Exception as e:
-        return f"Error: {str(e)}"
+@app.route('/')
+def index():
+    return "Nirapotta m3u server is running"
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 10000))
-    app.run(host="0.0.0.0", port=port)
+@app.route('/playlist.m3u')
+def serve_playlist():
+    update_playlist()
+    with open("output.m3u", "r") as f:
+        content = f.read()
+    return Response(content, mimetype='audio/x-mpegurl')
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=10000)
